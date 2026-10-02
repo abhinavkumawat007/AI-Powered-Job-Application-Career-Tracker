@@ -9,7 +9,8 @@ import Applications from "./pages/Applications";
 import ComingSoon from "./pages/ComingSoon";
 import AICareer from "./pages/AICareer";
 import Resume from "./pages/Resume";
-
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -51,7 +52,7 @@ function App() {
           path="/resume"
           element={<Resume />}
         />
-        
+
         <Route
           path="/job-matcher"
           element={<Resume />}
@@ -63,8 +64,13 @@ function App() {
         />
 
         <Route
+          path="/profile"
+          element={<Profile />}
+        />
+
+        <Route
           path="/settings"
-          element={<ComingSoon title="Settings" />}
+          element={<Settings />}
         />
 
 

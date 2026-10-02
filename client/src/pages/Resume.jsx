@@ -125,6 +125,19 @@ function Resume() {
 
       setAnalysis(response.data.analysis);
 
+      const storedUser = JSON.parse(
+        localStorage.getItem("user") || "{}"
+      );
+
+      const resumeScoreKey = storedUser.id
+        ? `resumeScore_${storedUser.id}`
+        : "resumeScore";
+
+      localStorage.setItem(
+        resumeScoreKey,
+        String(response.data.analysis.atsScore || 0)
+      );
+
     } catch (error) {
       console.error(
         "Resume analysis failed:",

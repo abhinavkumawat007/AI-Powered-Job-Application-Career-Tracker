@@ -7,6 +7,7 @@ import {
   LogOut,
   ChevronLeft,
   ChevronRight,
+
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -85,8 +86,8 @@ function Sidebar({ collapsed, setCollapsed }) {
               key={item.path}
               onClick={() => navigate(item.path)}
               className={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm transition ${active
-                  ? "bg-white text-black"
-                  : "text-zinc-500 hover:bg-white/5 hover:text-white"
+                ? "bg-white text-black"
+                : "text-zinc-500 hover:bg-white/5 hover:text-white"
                 }`}
             >
               <Icon size={18} />
@@ -98,37 +99,38 @@ function Sidebar({ collapsed, setCollapsed }) {
       </nav>
 
       {/* Bottom */}
-      <div className="space-y-2 border-t border-white/10 p-4">
-        <button
-          onClick={() => navigate("/settings")}
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-zinc-500 transition hover:bg-white/5 hover:text-white"
-        >
-          <Settings size={18} />
+<div className="space-y-2 border-t border-white/10 p-4">
 
-          {!collapsed && <span>Settings</span>}
-        </button>
+  <button
+    onClick={() => navigate("/settings")}
+    className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-zinc-500 transition hover:bg-white/5 hover:text-white"
+  >
+    <Settings size={18} />
 
-        <button
-          onClick={handleLogout}
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-zinc-500 transition hover:bg-red-500/10 hover:text-red-400"
-        >
-          <LogOut size={18} />
+    {!collapsed && <span>Settings</span>}
+  </button>
 
-          {!collapsed && <span>Logout</span>}
-        </button>
+  <button
+    onClick={handleLogout}
+    className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-zinc-500 transition hover:bg-red-500/10 hover:text-red-400"
+  >
+    <LogOut size={18} />
 
-        {/* Collapse */}
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="flex w-full items-center justify-center rounded-xl py-2 text-zinc-600 transition hover:bg-white/5 hover:text-white"
-        >
-          {collapsed ? (
-            <ChevronRight size={17} />
-          ) : (
-            <ChevronLeft size={17} />
-          )}
-        </button>
-      </div>
+    {!collapsed && <span>Logout</span>}
+  </button>
+
+  <button
+    onClick={() => setCollapsed(!collapsed)}
+    className="flex w-full items-center justify-center rounded-xl py-2 text-zinc-600 transition hover:bg-white/5 hover:text-white"
+  >
+    {collapsed ? (
+      <ChevronRight size={17} />
+    ) : (
+      <ChevronLeft size={17} />
+    )}
+  </button>
+
+</div>
     </aside>
   );
 }
